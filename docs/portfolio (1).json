@@ -1,0 +1,169 @@
+{
+  "revision": 0,
+  "name": "",
+  "specialty": "Graphic design & visual storytelling",
+  "headline": "Design with\na mission.",
+  "introduction": "Visual identities. Objects with character. Stories in print. A selection of work across graphics, fabric, and the page.",
+  "about": "A collection of work exploring how graphic design gives teams, programs, and shared experiences a visual identity. From a mission patch to a printed page, each format offers a different way to tell a story.",
+  "email": "",
+  "projects": {
+    "coldflow": {
+      "title": "Coldflow",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "coldflow": ""
+      }
+    },
+    "cratermaker": {
+      "title": "CraterMaker Special",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "cratermaker": ""
+      }
+    },
+    "hotfire": {
+      "title": "Hotfire",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "hotfire": ""
+      }
+    },
+    "condor": {
+      "title": "Condor Test Cell",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "condor-black": "",
+        "condor-white": ""
+      }
+    },
+    "psp-30": {
+      "title": "30 Years of PSP",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "psp-30": ""
+      }
+    },
+    "bravo": {
+      "title": "Bravo’s Best",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "bravo": ""
+      }
+    },
+    "shirt": {
+      "title": "PSP Liquids Shirt",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "shirt-front": "",
+        "shirt-back": ""
+      }
+    },
+    "upper-plumbing": {
+      "title": "Upper Plumbing",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "upper-plumbing": ""
+      }
+    },
+    "keychain": {
+      "title": "CraterMaker Shaker",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "keychain": ""
+      }
+    },
+    "liquids-embroidery": {
+      "title": "CraterMaker in Thread",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "cratermaker-embroidery": "",
+        "liquids-production-01": ""
+      }
+    },
+    "coldflow-embroidery": {
+      "title": "Coldflow Production",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "coldflow-production-01": ""
+      }
+    },
+    "thank-you": {
+      "title": "A Year of Support",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "liquids-thank-you": ""
+      }
+    },
+    "giving-day": {
+      "title": "Purdue Day of Giving",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "giving-day": ""
+      }
+    },
+    "bayonet": {
+      "title": "Boiler Bayonet",
+      "description": "",
+      "role": "",
+      "tools": "",
+      "year": "",
+      "captions": {
+        "bayonet-01": "",
+        "bayonet-02": "",
+        "bayonet-03": "",
+        "bayonet-04": "",
+        "bayonet-05": "",
+        "bayonet-06": "",
+        "bayonet-07": "",
+        "bayonet-08": "",
+        "bayonet-09": "",
+        "bayonet-10": "",
+        "bayonet-11": "",
+        "bayonet-12": "",
+        "bayonet-13": ""
+      }
+    }
+  },
+  "extraImages": {
+    "coldflow": []
+  }
+}
