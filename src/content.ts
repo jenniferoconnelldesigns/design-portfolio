@@ -37,5 +37,26 @@ export function parseContent(value: unknown): PortfolioContent {
       }
     }
   }
+  if (raw.extraImages !== undefined) {
+    if (!raw.extraImages || typeof raw.extraImages !== "object" || Array.isArray(raw.extraImages)) throw new Error("Invalid additional images.");
+    result.extraImages = {};
+    for (const project of projects) {
+      const images = (raw.extraImages as Record<string, unknown>)[project.id];
+      if (images === undefined) continue;
+      if (!Array.isArray(images) || images.length > 30) throw new Error("Use at most 30 additional pictures per project.");
+      result.extraImages[project.id] = images.map((im: any) => {
+        if (!im || typeof im.id !== "string" || !/^upload-[a-zA-Z0-9-]+$/.test(im.id) || typeof im.label !== "string" || im.label.length > 200 || typeof im.src !== "string" || im.src.length > 2000000 || !/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(im.src)) throw new Error("Invalid uploaded image.");
+        return {id:im.id,label:im.label,src:im.src,thumb:im.src};
+      });
+      if (new Set(result.extraImages[project.id].map(im=>im.id)).size !== images.length) throw new Error("Duplicate image IDs.");
+      for (const im of result.extraImages[project.id]) {
+        const caption = (notes[project.id] as any)?.captions?.[im.id];
+        if (caption !== undefined) {
+          if(typeof caption !== "string" || caption.length > 1200) throw new Error("Invalid image caption.");
+          result.projects[project.id].captions[im.id] = caption;
+        }
+      }
+    }
+  }
   return result;
 }
