@@ -25,7 +25,7 @@ export const projects: Project[] = [
   { id: "bayonet", category: "publishing", title: "Boiler Bayonet", type: "Fall 2025 · 13-page publication", images: Array.from({length:13},(_,i)=>art(`bayonet-${String(i+1).padStart(2,"0")}`, `Boiler Bayonet — page ${i+1}`)), pdf: "./documents/boiler-bayonet-fall-2025.pdf", pdfLabel: "Full publication", presentation: "editorial" },
 ];
 export type ProjectNotes = { title: string; description: string; role: string; tools: string; year: string; captions: Record<string, string> };
-export type PortfolioContent = { revision: number; name: string; specialty: string; headline: string; introduction: string; about: string; email: string; projects: Record<string, ProjectNotes> };
+export type PortfolioContent = { extraImages?: Record<string, Artwork[]>; revision: number; name: string; specialty: string; headline: string; introduction: string; about: string; email: string; projects: Record<string, ProjectNotes> };
 export const defaultContent: PortfolioContent = {
   revision: 0, name: "", specialty: "Graphic design & visual storytelling", headline: "Design with\na mission.",
   introduction: "Visual identities. Objects with character. Stories in print. A selection of work across graphics, fabric, and the page.",
@@ -36,3 +36,5 @@ export function completeContent(value: Partial<PortfolioContent> | null): Portfo
   if(!value) return structuredClone(defaultContent);
   return { ...defaultContent, ...value, projects: Object.fromEntries(projects.map(p=>[p.id,{...defaultContent.projects[p.id],...value.projects?.[p.id],captions:{...defaultContent.projects[p.id].captions,...value.projects?.[p.id]?.captions}}])) };
 }
+
+export function galleryProjects(content: PortfolioContent): Project[] { return projects.map(p=>({...p,images:[...p.images,...(content.extraImages?.[p.id]||[])]})); }
