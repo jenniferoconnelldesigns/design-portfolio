@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ArrowDown, ArrowRight, ChevronLeft, ChevronRight, X, Plus, Pencil, Download, Asterisk } from "lucide-react";
-import { categories, projects, Project, PortfolioContent } from "./portfolio-data";
+import { categories, galleryProjects, Project, PortfolioContent } from "./portfolio-data";
 
 export default function Portfolio({content,canEdit}:{content:PortfolioContent;canEdit:boolean}){
+  const projects = galleryProjects(content);
   const [selected,setSelected]=useState<{project:Project;index:number}|null>(null);
   const dialog=useRef<HTMLDialogElement>(null);
   const headline=content.headline.split("\n");
@@ -23,8 +24,8 @@ export default function Portfolio({content,canEdit}:{content:PortfolioContent;ca
     return <article className={`project-card project-${p.id}`} key={p.id}>
       <button className={`artboard ${p.presentation??""}`} onClick={()=>open(p)} aria-label={`View ${notes.title}`}>
         {p.id==="bayonet"?<div className="publication-spread">{[0,1,5].map(i=><img key={i} src={p.images[i].thumb} alt={p.images[i].label} loading="lazy"/>)}</div>
-          :p.id==="shirt"?<div className="shirt-pair">{p.images.map(im=><figure key={im.id}><img src={im.thumb} alt={im.label} loading="lazy"/><figcaption>{im.id.endsWith("front")?"FRONT":"BACK"}</figcaption></figure>)}</div>
-          :p.id==="condor"?<div className="condor-pair">{p.images.map(im=><div key={im.id} style={{background:im.background}}><img src={im.thumb} alt={im.label} loading="lazy"/></div>)}</div>
+          :p.id==="shirt"?<div className="shirt-pair">{p.images.slice(0,2).map(im=><figure key={im.id}><img src={im.thumb} alt={im.label} loading="lazy"/><figcaption>{im.id.endsWith("front")?"FRONT":"BACK"}</figcaption></figure>)}</div>
+          :p.id==="condor"?<div className="condor-pair">{p.images.slice(0,2).map(im=><div key={im.id} style={{background:im.background}}><img src={im.thumb} alt={im.label} loading="lazy"/></div>)}</div>
           :p.id==="liquids-embroidery"?<div className="embroidery-pair"><img src={p.images[0].thumb} alt={p.images[0].label} loading="lazy"/><img src={p.images[1].thumb} alt={p.images[1].label} loading="lazy"/></div>
           :<img className="single-art" src={p.images[0].thumb} alt={p.images[0].label} loading="lazy"/>}
         {p.images.length>1&&<span className="image-count">{p.images.length} {p.id==="bayonet"?"pages":"views"}</span>}

@@ -1,0 +1,24 @@
+name: Build portfolio
+on:
+  push:
+    branches: [add-project-pictures]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm run build
+      - name: Save built website
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/assets/portfolio.js docs/assets/portfolio.js.LEGAL.txt
+          git diff --cached --quiet || git commit -m "Build picture upload editor"
+          git push
